@@ -1,0 +1,7 @@
+name: ShockerChatDisplays
+version: '1.0'
+main: bymrshocker.shockerchatdisplays.ShockerChatDisplays
+api-version: '1.21'
+softdepend: [
+  Chatty
+]

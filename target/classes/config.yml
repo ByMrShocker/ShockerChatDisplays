@@ -1,0 +1,33 @@
+#Global tick method.
+#The parameter affects all tick parameters. For example: if set to 20, displayTime: 1 will have a value of equal to one second.
+tickTime: 20
+
+#How long the text will be displayed. This is also the starting value for “addTicksByLength”
+displayTime: 1
+
+#A threshold in the number of characters after which time will be added.
+addTicksLengthThreshold: 20
+
+#The time that is added after the threshold is passed.
+#How many ticks will be added is determined as follows:
+#(NumberOfCharactersAfterTheThreshold / addTicksLengthPerCharacters) * addTicksByLength
+addTicksByLength: 1
+addTicksLengthPerCharacters: 10
+
+#Text transformation
+displayOffset: '0,0.5,0.2'
+displayScale: '1,1,1'
+
+#Tick method for text typing animation. If the value = -1, the animation will not play
+typingAnimationTick: 1
+typingAnimationSymbolsPerTick: 1
+
+#Vanilla Method. Turns off if Chatty or other is detected
+ignoreMessagesWithStartSymbol:
+  - '!'
+
+#Chatty
+#The names of the channels whose messages will be displayed
+chattyChannels:
+  - 'local'
+
