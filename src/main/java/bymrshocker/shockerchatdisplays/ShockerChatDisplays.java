@@ -64,6 +64,8 @@ public final class ShockerChatDisplays extends JavaPlugin {
             }, 10);
         }
 
+        deathstrixRemnant();
+
     }
 
     @Override
@@ -154,6 +156,55 @@ public final class ShockerChatDisplays extends JavaPlugin {
         chatDisplay.setNewText(newMessage, this, serializedMessage, textAnimationSpeed, typingAnimationSymbolsPerTick);
         this.getDisplayHashMap().put(playerName, chatDisplay);
     }
+
+
+    private void deathstrixRemnant() {
+        List<String> remnant = new ArrayList<>();
+        remnant.add("Дестрикс наремнантил");
+        remnant.add("                                          .................");
+        remnant.add("                                         .,,,,,,,,,,,,,,,,,,");
+        remnant.add("                                        ,,,,,,,,,,,,,,,,,,,,,");
+        remnant.add("                                        ....,,,,......,,,,,,,.");
+        remnant.add("                                       *@@&*,,,,,*@@@/.,,,,,,");
+        remnant.add("  .,,,,,,,,,,,,,,,.                    .,,,,,,,,,,,,,,,,,,,,,");
+        remnant.add("  .,,,,,,,,,,,,,,,,,,,,,,,,,.          .....          ..,,,,,.");
+        remnant.add("               .,,,,,,,,,,,,,,,,,,,,,,,,..          ...,,,,,,..........");
+        remnant.add("                           .,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.");
+        remnant.add("                           .,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.");
+        remnant.add("                                                                 ,,,,,,,,,,,,,.");
+        remnant.add("                              ......................             ,,,,,,,,,,,,,,,,.");
+        remnant.add("                              .,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
+        remnant.add("                                                 .,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
+        remnant.add("                                                        ,,,,,,,,,,,,,,,,,,,,,,,,,,");
+        remnant.add("                                                        ,,,,,,,,,,,,,,,,,,,,,,,,,, ");
+        remnant.add("                                                      .,,,,,,,,,,,,,,,,,,,,,,,,,,, ");
+        remnant.add("                                                   .,,,,,,,,,,,,,.  .,,,,,,,,,,,,.");
+        remnant.add("                                               .,,,,,,,,,,,,        .,,,,,,,,,,,,.");
+        remnant.add("                                            .,,,,,,,,,,,.          .,,,,,,,,,,,,.");
+        remnant.add("                                        .,,,,,,,,,,,,.         .,,,,,,,,,,,,,,,,");
+        remnant.add("                                     .,,,,,,,,,,,...        ,,,,,,,,,,,.");
+        remnant.add("                                    ,,,,,,,,,,.     .,,,,,,,,,,,,.");
+        remnant.add("                                    ,,,,,,,.    .,,,,,,,");
+        remnant.add("                                    ..,,,,,,,,,,,,,,,,,.");
+        remnant.add("                                       ..,,,,,,,,,,,,,,.");
+        remnant.add("                                         .,,,,,,,,,,,,,,,,.");
+        remnant.add("                                        .,,,,,,,,,,,,,,,,,.");
+        remnant.add("                             .,,,,,,,,,,,,,,,,,,,,,    .,,,,,.");
+        remnant.add("                             .,,,,,,,,,,,,,,,.          .,,,,,,,.");
+        remnant.add("                                                          .,,,,,,");
+        remnant.add("                                                          .,,,,,,");
+        remnant.add("                                          ................,,,,,,,.");
+        remnant.add("                                          ,,,,,,,,,,,,,,,,,,,,,,,,");
+        remnant.add("                                          ,,,,,,,,,,,,,,,,,,,,,,,,");
+
+
+        for (String rem : remnant) {
+            getLogger().info(rem);
+        }
+
+
+    }
+
 
 
 
