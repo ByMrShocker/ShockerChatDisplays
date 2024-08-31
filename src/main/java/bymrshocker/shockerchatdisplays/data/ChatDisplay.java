@@ -60,7 +60,7 @@ public class ChatDisplay {
         return playingAnimation;
     }
 
-    public void setNewText(Component text, ShockerChatDisplays plugin, String string, int speed, int symbolsPerTick) {
+    public void setNewText(Component text, ShockerChatDisplays plugin, String string, int speed) {
         timeToRemove = plugin.displayTime;
         if (string.length() >= plugin.addTicksLengthThreshold) {
             int addLength = (string.length() - plugin.addTicksLengthThreshold);

@@ -138,7 +138,7 @@ public final class ShockerChatDisplays extends JavaPlugin {
         String playerName = player.getName();
         if (getDisplayHashMap().containsKey(playerName)) {
             ChatDisplay chatDisplay = getDisplayHashMap().get(playerName);
-            chatDisplay.setNewText(newMessage, this, message, textAnimationSpeed, typingAnimationSymbolsPerTick);
+            chatDisplay.setNewText(newMessage, this, message, textAnimationSpeed);
         } else {
             if (Bukkit.isPrimaryThread()) {
                 createTextDisplay(newMessage, player, message);
@@ -153,7 +153,7 @@ public final class ShockerChatDisplays extends JavaPlugin {
         ChatDisplay chatDisplay = new ChatDisplay((TextDisplay) player.getWorld().spawnEntity(
                 player.getLocation().add(0,2,0), EntityType.TEXT_DISPLAY), displayOffsetScale.get(0), displayOffsetScale.get(1));
         player.addPassenger(chatDisplay.getTextDisplay());
-        chatDisplay.setNewText(newMessage, this, serializedMessage, textAnimationSpeed, typingAnimationSymbolsPerTick);
+        chatDisplay.setNewText(newMessage, this, serializedMessage, textAnimationSpeed);
         this.getDisplayHashMap().put(playerName, chatDisplay);
     }
 
