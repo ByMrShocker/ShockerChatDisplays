@@ -155,7 +155,7 @@ public final class ShockerChatDisplays extends JavaPlugin {
                 player.getLocation().add(0,2,0), EntityType.TEXT_DISPLAY), displayOffsetScale.get(0), displayOffsetScale.get(1));
         player.addPassenger(chatDisplay.getTextDisplay());
         chatDisplay.setNewText(newMessage, this, serializedMessage, textAnimationSpeed);
-        
+
         this.getDisplayHashMap().put(playerName, chatDisplay);
     }
 
