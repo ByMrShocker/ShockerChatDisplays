@@ -30,4 +30,5 @@ public class EventListener implements Listener {
     public void PlayerDeathEvent(PlayerDeathEvent event) {
         plugin.removeMessageForPlayer(event.getPlayer());
     }
+
 }

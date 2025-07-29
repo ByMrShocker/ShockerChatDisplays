@@ -7,6 +7,7 @@ import bymrshocker.shockerchatdisplays.data.ChatDisplay;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TextDisplay;
@@ -16,6 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -67,13 +69,50 @@ public final class ShockerChatDisplays extends JavaPlugin {
 
         deathstrixRemnant();
 
+        Bukkit.getScheduler().runTaskLater(this, bukkitTask -> {garbageCollector();}, 200);
+
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        for (String key : displayHashMap.keySet()) {
+            displayHashMap.get(key).destroy();
+        }
     }
 
+
+    private void garbageCollector() {
+        List<TextDisplay> toDestroy = new ArrayList<>();
+        for (World world : Bukkit.getWorlds()) {
+            Collection<TextDisplay> displays = world.getEntitiesByClass(TextDisplay.class);
+            for (TextDisplay display : displays) {
+                if (display.isDead()) continue;
+                if (isDisplayContains(display)) continue;
+                if (display.customName() == null) continue;
+                if (!PlainTextComponentSerializer.plainText().serialize(display.customName()).equals("scd_messageDisplay")) continue;
+                toDestroy.add(display);
+            }
+        }
+
+        if (toDestroy.isEmpty()) {
+            getLogger().info("GarbageCollector did not found any garbage text displays. Nice!");
+            return;
+        }
+
+        getLogger().info("GarbageCollector found " + toDestroy.size() + " displays. Destroying!");
+        for (TextDisplay display : toDestroy) {
+            display.remove();
+        }
+
+    }
+
+    public boolean isDisplayContains(TextDisplay display) {
+        for (ChatDisplay chat : displayHashMap.values()) {
+            if (chat.getTextDisplay() == display) return true;
+        }
+        return false;
+    }
 
 
     private boolean searchForDependPlugins() {
